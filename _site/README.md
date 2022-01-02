@@ -1,25 +1,32 @@
-# "Pintereso" - Jekyll Template by WowThemes.net
+# Test site for Neural concepts
 
-[Live Demo](https://wowthemesnet.github.io/template-pintereso-bootstrap-jekyll/) &nbsp; | &nbsp; [Download](https://github.com/wowthemesnet/template-pintereso-bootstrap-jekyll/archive/master.zip) &nbsp; | &nbsp; [Buy me a coffee](https://www.wowthemes.net/donate/) &nbsp; | &nbsp; [Documentation](https://bootstrapstarter.com/bootstrap-templates/template-pintereso-bootstrap-jekyll/) &nbsp; | &nbsp; [WordPress version](https://www.wowthemes.net/themes/pinpresso-wordpress/)
+To develop this site locally:
 
-![Free Jekyll Theme Pintereso](assets/images/screenshot.jpg)
+[Install `rbenv`](https://github.com/rbenv/rbenv). With `rbenv` installed, activate Ruby 2.6.9 using:
 
-### Copyright
+```
+rbenv install 2.6.9
+rbenv global 2.6.9
+```
 
-Copyright (C) 2018 WowThemes.net.
+Create a fork of this repo. Locally clone the repo.
 
-**Pintereso for Jekyll** is designed by [Sal](https://www.wowthemes.net) and it is licensed MIT. If you want to thank Sal:
+`cd` into the local copy of this repo, use `gem install` to install the missing packages (similar to `pip install -r requirements.txt`).
 
-<a href="https://www.wowthemes.net/donate/" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+Use `bundle exec jekyll serve` to run test server.
 
------------------
+## Add a new post
 
-## Contribute
+To add a new visualization to the mix, add a new Markdown file to `_posts`. Use the other posts as reference. Different types of content are acceptable:
 
-- Clone the repo.
-- Create a branch off of master and give it a meaningful name (e.g. my-new-feature).
-- Open a pull request on GitHub and describe the feature or fix. 
+- image + external link
+- movies: you can use youtube or gifs. Fill the `video` or `gif` property to make this work.
+- iframe: can be used to embed different kinds of javascript visualizations. Use the `iframe` property to make this work. Your iframe should scale appropriately with different embedding sizes. Fill in `iframeAspectRatio` (for example, 1.78 for an iframe in the 16:9 aspect ratio). Note that you can only use `https` iframes, NOT `http`.
 
-Thank you!
+Add preview images to `assets/images`. Make the preview image at least 1010 pixels wide.
 
-[Sal](https://www.wowthemes.net)
+Commit changes remotely and open a PR to allow us to pull in your changes.
+
+## Credits
+
+This demo uses "Pintereso" - [Jekyll Template by WowThemes.net](https://github.com/wowthemesnet/template-pintereso-bootstrap-jekyll).

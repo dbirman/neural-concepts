@@ -1,9 +1,10 @@
 # Site
 name: 'Neural Concepts'
 description: 'Open source visualizations for neural concepts'
-#logo: 'assets/images/allthemespackage.png'
-#favicon: 'assets/images/logo.png'
-baseurl: '/test_site'
+logo: 'assets/images/big-brain.png'
+favicon: 'assets/images/favicon.ico'
+baseurl: ''
+remote: 'https://frosty-easley-c0957b.netlify.app'
 #avatar: 'assets/images/sal.jpg'
 disqus: 'demowebsite'
 email: 'eleanorbatty10@gmail.com'

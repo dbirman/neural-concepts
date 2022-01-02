@@ -1,44 +1,61 @@
 ---
 layout: default
 ---
-<section class="full-bg pt-5 pb-5">
+<section class="bg-gray200 pt-5 pb-5">    
     <div class="container">
     	<div class="row justify-content-center">
-    		<div class="col-md-8">
+    		<div class="col-lg-12">
                 
     			<article class="card">
+          {% if page.gif %}
+            <img class="card-img-top mb-2" src="{{page.gif}}">
+          {% else %}
+            {% if page.youtube %}
+              <iframe style="border:none; width:100%; aspect-ratio:{{page.youtubeAspectRatio}}" src="https://www.youtube.com/embed/{{page.youtube}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {% else %}
+              {% if page.iframe %}
+                <iframe style="overflow: hidden; border:none; width:100%; aspect-ratio:{{page.iframeAspectRatio}}" src="{{page.iframe}}" scrolling="no"></iframe>
+              {% else %}
+                  {% if page.image %} 
+                      <span class="pinme">
+                          <a data-pin-do="buttonPin" data-pin-tall="true" href="https://www.pinterest.com/pin/create/button/?url={{site.url}}{{site.baseurl}}{{page.url}}&media={{site.url}}{{site.baseurl}}/{{page.image}}&description={{ page.title }}- {{ page.content | strip_html | truncatewords:25 }}"></a>
+                      </span>
+                      <img class="card-img-top mb-2" src="{% if page.image contains "://" %}{{ page.image }}{% else %}{{ page.image | absolute_url }}{% endif %}" alt="{{ page.title }}"> 
+                  {% endif %}
+              {% endif %}
+            {% endif %}
+            {% endif %}
+                      
+    			<div class="card-body">
                     
-                 {% if page.image %}
-                    <img class="card-img-top mb-2" src="{% if page.image contains "://" %}{{ page.image }}{% else %}{{ page.image | absolute_url }}{% endif %}" alt="{{ page.title }}"> 
+    				<h1 class="display-4">
+    				    {{page.title}} 
+            </h1>
+            <small class="text-muted d-block mb-3">
+                {% unless page.metadate == "hide" %} 
+                    {{ page.date | date: '%B %d, %Y' }} 
+                {% endunless %}
+                {% if page.author %}
+, by {{page.author | capitalize}} 
                 {% endif %}
-                    
-    			<div class="card-body text-muted">
-                    
-                    <h1 class="display-4 nav-bar-text">
-    				    {{page.title}}
-                    </h1>
-                    <small class="nav-bar-text d-block mb-3">
-                        {% unless page.metadate == "hide" %} 
-                            {{ page.date | date: '%B %d, %Y' }} 
-                        {% endunless %}
-                        {% if page.author %}
-                            , by {{page.author | capitalize}} 
-                        {% endif %}
-                    </small>                    
+            </small>                    
                     
     				{{ content }}
                     
                     {% if page.visit %}
-                    <p><a target="_blank" href="{{page.visit}}" class="btn-dark btn-gray d-block font-weight-bold">
-                        Open Viz <i class="fas fa-external-link-alt"></i></a>
+                    <p><a target="_blank" href="{{page.visit}}" class="btn btn-gray d-block font-weight-bold">
+                        Visit <i class="fas fa-external-link-alt"></i></a>
                     </p>
                     {% endif %}
                     
                     {% for category in page.categories %}
-                      <a class="btn btn-sm btn-primary mt-2" href="{{site.baseurl}}/index.html#{{ category | downcase }}">
+                      <a class="btn btn-sm btn-primary mt-2" href="{{site.baseurl}}/categories.html#{{ category | downcase }}">
                         # {{ category | downcase }}
                       </a>
                     {% endfor %}
+                    {% if page.license %}
+                      <div>License: {{page.license}}</div>
+                    {% endif %}
                     
     				{% include comments.html %}
                     

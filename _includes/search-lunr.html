@@ -66,7 +66,7 @@ function lunr_search(term) {
 }
 </script>
 <style>
-    .lunrsearchresult .title {color: #65CCB8;}
+    .lunrsearchresult .title {color: #d9230f;}
     .lunrsearchresult .url {color: silver;}
     .lunrsearchresult a {display: block; color: #777;}
     .lunrsearchresult a:hover, .lunrsearchresult a:focus {text-decoration: none;}
@@ -75,8 +75,7 @@ function lunr_search(term) {
 
 
 
-<!-- TODO: make search bar border not red -->
-<!-- TODO: change search results color scheme -->
+
 <form class="bd-search hidden-sm-down" onSubmit="return lunr_search(document.getElementById('lunrsearch').value);">
-<input type="text" class="form-control bg-dark border-0 font-weight-bold"  id="lunrsearch" name="q" value="" placeholder="Type and hit enter...">
+<input type="text" class="form-control bg-graylight border-0 font-weight-bold"  id="lunrsearch" name="q" value="" placeholder="Type and hit enter..."> 
 </form>

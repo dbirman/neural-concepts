@@ -8,4 +8,4 @@ youtube: aSnO9QmL7w8
 youtubeAspectRatio: 1.0
 ---
 
-Rendering single neurons in Blender. Based off of data from neuromorpho.org sim
+Rendering single neurons in Blender. Based off of data from neuromorpho.org
